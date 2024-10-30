@@ -44,12 +44,26 @@ void TermInsert(PPT& node, int coef,int exp )
 
 void PTPrint(PPT node)
 {
+	cout << "最终结果为：";
 	while (node!=nullptr)
 	{
-		cout << node->exp << "  " << node->coef << endl;
+		cout<< node->coef << "X^" << node->exp ;
+		
 		node = node->next;
+		if (node != nullptr)
+		{
+			cout << "+";
+		}
 	}
 
 }
 
+void PTMerge(PPT& nodeA, PPT& nodeB)
+{
+	while (nodeB!=nullptr)
+	{
+		TermInsert(nodeA, nodeB->coef, nodeB->exp);
+		nodeB = nodeB->next;
+	}
+}
 

@@ -13,3 +13,5 @@ void CreatePolynomial(PPT&node);
 void TermInsert(PPT&node ,int coef,int exp);
 // 多项式的打印
 void PTPrint(const PPT node);
+// 多项式的合并
+void PTMerge(PPT& nodeA, PPT& nodeB);
