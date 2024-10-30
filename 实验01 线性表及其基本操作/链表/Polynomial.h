@@ -1,0 +1,11 @@
+#pragma once
+
+typedef struct PolynomialTerm 
+{
+    int coef;                // 系数
+    int exp;                 // 指数
+    struct PolynomialTerm* next;   // 指向下一个节点
+} PT ,*PPT;
+
+// 创建一个多项式
+void CreatePolynomial(PPT&node);

@@ -24,10 +24,10 @@ void SListPrint(SListNode* plist)
 SListNode* BuySListNode(SLTDateType x)
 {
 	SListNode* Node = (SListNode*)malloc(sizeof(SListNode)); // 动态分配内存，注释无误
-	if (Node == NULL) // 修正为 == 进行比较
+	if (Node == NULL) 
 	{
 		perror("malloc fail");
-		return NULL; // 添加 return NULL
+		return NULL; 
 	}
 	Node->data = x;
 	Node->next = NULL;
