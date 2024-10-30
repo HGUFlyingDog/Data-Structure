@@ -9,3 +9,7 @@ typedef struct PolynomialTerm
 
 // 创建一个多项式
 void CreatePolynomial(PPT&node);
+// 多项式项的插入
+void TermInsert(PPT&node ,int coef,int exp);
+// 多项式的打印
+void PTPrint(const PPT node);

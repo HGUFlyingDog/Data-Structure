@@ -9,8 +9,16 @@ int main()
 
 	CreatePolynomial(A);
 	CreatePolynomial(B);
+	// 系数 指数
+	TermInsert(A, 5, 3);
+	TermInsert(A, 5, 3);
+	TermInsert(A, 5, 3);
+	TermInsert(A, 5, 3);
+	TermInsert(B, 4, 3);
+	TermInsert(A, 0, 2);
 
-
+	
+	PTPrint(A);
 
 	return 0;
 }
