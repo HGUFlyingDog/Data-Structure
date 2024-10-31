@@ -23,7 +23,7 @@ x64/
 
 *.suo
 
-*.vcxproj.filters
+
 *.vcxproj.user
 *.user
 *.rsuser
