@@ -58,7 +58,7 @@ void PTPrint(PPT node)
 
 }
 
-void PTMerge(PPT& nodeA, PPT& nodeB)
+void PTMerge(PPT& nodeA, PPT nodeB)
 {
 	while (nodeB!=nullptr)
 	{
@@ -67,3 +67,11 @@ void PTMerge(PPT& nodeA, PPT& nodeB)
 	}
 }
 
+void PTMergeSub(PPT& nodeA, PPT nodeB)
+{
+	while (nodeB != nullptr)
+	{
+		TermInsert(nodeA, -nodeB->coef, nodeB->exp);
+		nodeB = nodeB->next;
+	}
+}
