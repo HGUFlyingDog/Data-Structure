@@ -14,4 +14,6 @@ void TermInsert(PPT&node ,int coef,int exp);
 // 多项式的打印
 void PTPrint(const PPT node);
 // 多项式的合并
-void PTMerge(PPT& nodeA, PPT& nodeB);
+void PTMerge(PPT& nodeA, PPT nodeB);
+// 多项式的减法
+void PTMergeSub(PPT& nodeA, PPT nodeB);
