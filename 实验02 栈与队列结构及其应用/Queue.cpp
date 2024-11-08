@@ -1,7 +1,6 @@
 ﻿#include"Queue.h"
 #include<iostream>
 #include <cassert>
-#define MAXQSIZE 4
 
 using namespace std;
 
@@ -31,7 +30,7 @@ Status DeQueue(Queue& Q)
 		return ERROR; //队空
 	cout<< Q.base[Q.front]<<"已出队列"<<endl;    //保存队头元素
 	Q.front = (Q.front + 1) % MAXQSIZE;
-
+	return OK;
 }
 int QueueSize(Queue Q)
 {
@@ -42,7 +41,7 @@ Status QueueTraverse(Queue Q)
 {
 	if (Q.front == Q.rear)
 	{
-		cout << "这是空的，啥都没有(；´д｀)ゞ" << endl;
+		cout << "这是空的，啥都没有(╯﹏╰)" << endl;
 		return ERROR;
 	}
 
@@ -55,3 +54,22 @@ Status QueueTraverse(Queue Q)
 	cout << endl;
 	return OK;
 }
+
+//- - - - - 队列的链式存储结构- - - - - 
+
+//链式队列的初始化
+Status InitQueue(LinkQueue& Q)
+{
+	Q.front = Q.rear = new QNode;
+	if (!Q.front)
+		return ERROR;
+	Q.front->next = nullptr;
+	return OK;
+}
+Status EnQueue(LinkQueue& Q, QElemtype e)
+{
+	Q.rear = new QNode;
+
+}
+Status DeQueue(QNode& Q);
+Status QueueTraverse(QNode Q);
