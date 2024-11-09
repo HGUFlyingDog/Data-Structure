@@ -17,17 +17,12 @@ typedef int Status;
 typedef int SDatatype;	//栈存储的数据
 
 //- - - - - 链栈的存储结构- - - - - 
+
 typedef struct StackNode
 {
-	struct StackNode* next;
 	SDatatype data;
-}SNode;
-
-typedef struct Stack
-{
-	Stack* tail;
-	int size;
-}Stack;
+	struct StackNode* next;
+}StackNode, * LinkStack;
 
 
 // -----顺序栈的存储结构 - ----
@@ -39,7 +34,11 @@ typedef struct
 }SqStack;
 
 Status InitStack(SqStack& S);
-
 Status StackPush(SqStack& S, SDatatype e);
 Status StackPop(SqStack& S);
 Status StackTraverse(SqStack S);
+
+Status InitStack(LinkStack& S);
+Status StackPush(LinkStack& S, SDatatype e);
+Status StackPop(LinkStack& S);
+Status StackTraverse(LinkStack S);
