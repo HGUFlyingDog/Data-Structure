@@ -1,9 +1,14 @@
 #pragma once
 //Ë³ÐòÕ»
-#define MAXSSIZE 100
 
 #include<iostream>
-using namespace std;
+
+#define MAXSSIZE 100
+
+using  std::cout;
+using  std::cin;
+using  std::endl;
+
 typedef int Status;
 #define OK 1
 #define ERROR 0
@@ -29,10 +34,12 @@ typedef struct Stack
 typedef struct
 {
 	SDatatype* base;//Õ»µ×Ö¸Õë
-	SDatatype* top;
+	int top;
 	int stacksize;
 }SqStack;
 
 Status InitStack(SqStack& S);
 
-Status Push(SqStack& S, SDatatype e);
+Status StackPush(SqStack& S, SDatatype e);
+Status StackPop(SqStack& S);
+Status StackTraverse(SqStack S);
