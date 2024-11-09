@@ -15,7 +15,7 @@ Status InitStack(SqStack& S)
 //顺序栈的入栈
 Status StackPush(SqStack& S, SDatatype e)
 {
-	if (S.top==S.stacksize)
+	if (S.top == S.stacksize)
 	{
 		cout << "满辣，不要再加了(ㄒoㄒ)" << endl;
 	}
@@ -26,20 +26,18 @@ Status StackPush(SqStack& S, SDatatype e)
 //顺序栈的入栈
 Status StackPop(SqStack& S)
 {
-	cout << S.base[--S.top] << "已经出来喽~(✪ω✪)"<<endl;
+	cout << S.base[--S.top] << "已经出来喽~(✪ω✪)" << endl;
 	return OK;
 }
 //顺序栈的遍历
 Status StackTraverse(SqStack S)
 {
-	for (int i = 0; i <S.top; ++i)
+	for (int i = 0; i < S.top; ++i)
 		cout << S.base[i] << " ";
 
 	cout << endl;
 	return OK;
 }
-
-
 
 //构造一个空栈S，栈顶指针置空
 Status InitStack(LinkStack& S)
@@ -62,7 +60,7 @@ Status StackPush(LinkStack& S, SDatatype e)
 Status StackPop(LinkStack& S)
 {
 	if (S == NULL) return ERROR;
-	cout<<S->data<< "已经出来喽~(✪ω✪)" << endl;
+	cout << S->data << "已经出来喽~(✪ω✪)" << endl;
 	auto p = S;
 	S = S->next;
 	delete p;
@@ -72,11 +70,34 @@ Status StackPop(LinkStack& S)
 //链式栈的遍历
 Status StackTraverse(LinkStack S)
 {
-	while (S!= nullptr)
+	while (S != nullptr)
 	{
 		cout << S->data << "->";
 		S = S->next;
 	}
 	cout << "NULL";
 	return OK;
+}
+
+Status StackPop(LinkStack& S, SDatatype& e)
+{
+	if (S == NULL) return ERROR;
+	e = S->data;
+	auto p = S;
+	S = S->next;
+	delete p;
+	return OK;
+}
+
+bool StackEmpty(LinkStack S)
+{
+	if (S==nullptr)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
 }

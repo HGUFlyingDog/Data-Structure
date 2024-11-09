@@ -1,5 +1,7 @@
 //调用函数
 #include"Queue.h"
+#include"Stack.h"
+
 Status QueueTest()
 {
 	cout << "顺序队列测试部分：" << endl;
@@ -14,7 +16,6 @@ Status QueueTest()
 	QueueTraverse(Q);
 	return OK;
 }
-
 
 Status QueueTest_Link()
 {
@@ -31,9 +32,44 @@ Status QueueTest_Link()
 
 	return OK;
 }
+
+Status SqStackTest()
+{
+	SqStack  S;
+	InitStack(S);
+	StackPush(S, 5);
+	StackPush(S, 4);
+	StackPush(S, 3);
+	StackPush(S, 2);
+
+	StackPop(S);
+
+	StackTraverse(S);
+	return OK;
+}
+
+Status SqStackTest_Link()
+{
+	SqStackTest();
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	LinkStack S;
+	InitStack(S);
+	StackPush(S, 5);
+	StackPush(S, 4);
+
+
+	StackPop(S);
+
+	StackTraverse(S);
+	return OK;
+}
 int main()
 {
-	QueueTest();
-	QueueTest_Link();
-
+	//QueueTest();
+	//QueueTest_Link();
+	
+	conversion(50);
 }
+

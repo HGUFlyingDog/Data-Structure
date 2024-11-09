@@ -2,7 +2,6 @@
 
 #include<iostream>
 
-
 #define MAXQSIZE 100
 
 using  std::cout;

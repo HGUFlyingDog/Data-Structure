@@ -33,12 +33,19 @@ typedef struct
 	int stacksize;
 }SqStack;
 
+//Ë³ÐòÕ»
 Status InitStack(SqStack& S);
 Status StackPush(SqStack& S, SDatatype e);
 Status StackPop(SqStack& S);
 Status StackTraverse(SqStack S);
 
+//Á´Õ»
 Status InitStack(LinkStack& S);
 Status StackPush(LinkStack& S, SDatatype e);
 Status StackPop(LinkStack& S);
 Status StackTraverse(LinkStack S);
+bool StackEmpty(LinkStack S);
+
+//½øÖÆ×ª»»
+void conversion(int N);
+Status StackPop(LinkStack& S, SDatatype &e);
