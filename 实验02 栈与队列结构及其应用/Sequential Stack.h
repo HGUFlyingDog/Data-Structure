@@ -1,18 +1,38 @@
 #pragma once
 //Ë³ÐòÕ»
+#define MAXSSIZE 100
+
+#include<iostream>
+using namespace std;
+typedef int Status;
+#define OK 1
+#define ERROR 0
+
 
 typedef int SDatatype;	//Õ»´æ´¢µÄÊý¾Ý
+
+//- - - - - Á´Õ»µÄ´æ´¢½á¹¹- - - - - 
 typedef struct StackNode
 {
 	struct StackNode* next;
 	SDatatype data;
-
 }SNode;
 
 typedef struct Stack
 {
 	Stack* tail;
 	int size;
-
 }Stack;
 
+
+// -----Ë³ÐòÕ»µÄ´æ´¢½á¹¹ - ----
+typedef struct
+{
+	SDatatype* base;//Õ»µ×Ö¸Õë
+	SDatatype* top;
+	int stacksize;
+}SqStack;
+
+Status InitStack(SqStack& S);
+
+Status Push(SqStack& S, SDatatype e);
