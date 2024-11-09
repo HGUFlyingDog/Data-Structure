@@ -12,7 +12,7 @@ Status InitQueue(Queue& Q)
 
 Status EnQueue(Queue& Q, QElemtype e)
 {
-	assert(Q.base != nullptr);
+	
 	if ((Q.rear + 1) % MAXQSIZE == Q.front)
 		return ERROR ;//循环队列满
 	Q.base[Q.rear] = e;
@@ -21,7 +21,7 @@ Status EnQueue(Queue& Q, QElemtype e)
 }
 Status DeQueue(Queue& Q)
 {
-	assert(Q.base != nullptr);
+	
 	if (Q.front == Q.rear) 
 		return ERROR; //队空
 	cout<< Q.base[Q.front]<<"已出队列"<<endl;    //保存队头元素
@@ -58,7 +58,7 @@ Status QueueTraverse(Queue Q)
 Status InitQueue(LinkQueue& Q)
 {
 	Q.front = Q.rear = new QNode;
-	assert(Q.front!=nullptr);
+	
 
 	Q.front->next = nullptr;
 	return OK;
@@ -66,7 +66,7 @@ Status InitQueue(LinkQueue& Q)
 
 Status EnQueue(LinkQueue& Q, QElemtype e)
 {
-	assert(Q.rear != nullptr);
+	
 	
 	QNode* p = new QNode;
 	p->data = e;
