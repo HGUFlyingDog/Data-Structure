@@ -1,30 +1,32 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
-#define MAXQSIZE 100
+
 
 #include<iostream>
-using namespace std;
+#include <cassert>
 
-typedef int QElemtype;	//队列存储的数据
+#define MAXQSIZE 100
+
+using  std::cout;
+using  std::cin;
+using  std::endl;
 
 typedef int Status;
 #define OK 1
 #define ERROR 0
 
+typedef int QElemtype;	//队列存储的数据
+
 typedef struct QNode
 {
-    QElemtype data;
-    struct QNode* next;
+	QElemtype data;
+	struct QNode* next;
 } QNode, * QueuePtr;
 
-typedef struct 
+typedef struct
 {
-    QueuePtr front; // 队头指针
-    QueuePtr rear;  // 队尾指针
+	QueuePtr front; // 队头指针
+	QueuePtr rear;  // 队尾指针
 } LinkQueue;
-
-
-
 
 typedef struct Queue
 {

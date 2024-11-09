@@ -1,12 +1,5 @@
 ﻿#include"Queue.h"
-#include<iostream>
-#include <cassert>
-
-using  std::cout;
-using  std::cin;
-
-
-//采用顺序存储结构表示抽象数据类型队列，并实现队的初始化、入队、出队等各种操作。
+//3.采用顺序存储结构表示抽象数据类型队列，并实现队的初始化、入队、出队等各种操作。
 
 Status InitQueue(Queue& Q)
 {
