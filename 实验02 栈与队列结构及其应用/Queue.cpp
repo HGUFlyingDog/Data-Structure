@@ -2,7 +2,9 @@
 #include<iostream>
 #include <cassert>
 
-using namespace std;
+using  std::cout;
+using  std::cin;
+
 
 //采用顺序存储结构表示抽象数据类型队列，并实现队的初始化、入队、出队等各种操作。
 
@@ -56,20 +58,50 @@ Status QueueTraverse(Queue Q)
 }
 
 //- - - - - 队列的链式存储结构- - - - - 
+//4.*采用链式存储结构表示抽象数据类型队列，并实现队的初始化、入队、出队等各种操作。
 
 //链式队列的初始化
 Status InitQueue(LinkQueue& Q)
 {
 	Q.front = Q.rear = new QNode;
-	if (!Q.front)
-		return ERROR;
+	assert(Q.front!=nullptr);
+
 	Q.front->next = nullptr;
 	return OK;
 }
+
 Status EnQueue(LinkQueue& Q, QElemtype e)
 {
-	Q.rear = new QNode;
+	assert(Q.rear != nullptr);
+	
+	QNode* p = new QNode;
+	p->data = e;
+	if (Q.rear->next == nullptr)
+	{
+		Q.rear = p;
+	}
+	p->next = Q.front;
+	Q.front = p;
+	return OK;
+}
+
+Status DeQueue(LinkQueue& Q)
+{
+	cout << Q.front->data<<"已出队"<< endl;
+	Q.front = Q.front->next;
+	return OK;
 
 }
-Status DeQueue(QNode& Q);
-Status QueueTraverse(QNode Q);
+
+Status QueueTraverse(LinkQueue Q)
+{
+	QNode* p = Q.front;
+	while (p->next!=nullptr)
+	{
+		cout << p->data<<"->";
+		p = p->next;
+	}
+	cout << "NULL";
+	return OK;
+}
+

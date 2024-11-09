@@ -17,11 +17,13 @@ typedef struct QNode
     struct QNode* next;
 } QNode, * QueuePtr;
 
-typedef struct
+typedef struct 
 {
     QueuePtr front; // 队头指针
     QueuePtr rear;  // 队尾指针
 } LinkQueue;
+
+
 
 
 typedef struct Queue
@@ -38,6 +40,6 @@ Status DeQueue(Queue& Q);
 Status QueueTraverse(Queue Q);
 
 Status InitQueue(LinkQueue& Q);
-Status EnQueue(QNode& Q, QElemtype e);
-Status DeQueue(QNode& Q);
-Status QueueTraverse(QNode Q);
+Status EnQueue(LinkQueue& Q, QElemtype e);
+Status DeQueue(LinkQueue& Q);
+Status QueueTraverse(LinkQueue Q);
