@@ -47,6 +47,6 @@ Status StackTraverse(LinkStack S);
 bool StackEmpty(LinkStack S);
 
 //进制转换
-void conversion(int N,int num);
-Status StackPop(LinkStack& S, SDatatype &e);
-void EvaluateExpression();
+void conversion(int N,int num);//进制转换
+Status StackPop(LinkStack& S, SDatatype &e);//另一种方式的出栈方式
+void EvaluateExpression();//后缀表达式求值
