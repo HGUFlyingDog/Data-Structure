@@ -100,3 +100,11 @@ Status QueueTraverse(LinkQueue Q)
 }
 
 
+//另一种形式的出队列，用参数返回类型
+Status DeQueue(Queue& Q, QElemtype& e)
+{
+	if (Q.front == Q.rear) return ERROR; // 队列空
+	e = Q.base[Q.front];
+	Q.front = (Q.front + 1) % MAXQSIZE;
+	return OK;
+}

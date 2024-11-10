@@ -34,12 +34,15 @@ typedef struct Queue
 } Queue;
 //顺序循环队列的结构
 
-Status InitQueue(Queue& Q);
-Status EnQueue(Queue& Q, QElemtype e);
-Status DeQueue(Queue& Q);
-Status QueueTraverse(Queue Q);
+Status InitQueue(Queue& Q);//队列的初始化
+Status EnQueue(Queue& Q, QElemtype e);//入队列
+Status DeQueue(Queue& Q);//出队列
+Status QueueTraverse(Queue Q);//队列的遍历
 
-Status InitQueue(LinkQueue& Q);
-Status EnQueue(LinkQueue& Q, QElemtype e);
-Status DeQueue(LinkQueue& Q);
-Status QueueTraverse(LinkQueue Q);
+Status InitQueue(LinkQueue& Q);//队列的初始化
+Status EnQueue(LinkQueue& Q, QElemtype e);//入队列
+Status DeQueue(LinkQueue& Q);//出队列
+Status QueueTraverse(LinkQueue Q);//队列的遍历
+
+Status DeQueue(Queue& Q, QElemtype& e);//出队列另一种传参形式
+Status PrintYangHuiTriangle(int n);//打印杨辉三角形
