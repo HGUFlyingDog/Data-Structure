@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="conversion.cpp" />
     <ClCompile Include="EvaluateExpression.cpp" />
-    <ClCompile Include="maze.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="test.cpp" />
