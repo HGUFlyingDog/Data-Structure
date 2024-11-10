@@ -47,5 +47,6 @@ Status StackTraverse(LinkStack S);
 bool StackEmpty(LinkStack S);
 
 //½øÖÆ×ª»»
-void conversion(int N);
+void conversion(int N,int num);
 Status StackPop(LinkStack& S, SDatatype &e);
+void EvaluateExpression();
