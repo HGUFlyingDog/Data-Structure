@@ -4,7 +4,9 @@ void conversion(int N,int num)
 {
 	LinkStack S;
 	InitStack(S);
-	int e;
+	int e; 
+	char hexDigits[] = "0123456789ABCDEF"; // 用于表示十六进制字符
+
 	while (N)
 	{
 		StackPush(S, N % num);
@@ -14,6 +16,6 @@ void conversion(int N,int num)
 	while (!StackEmpty(S))
 	{
 		StackPop(S,e);
-		cout << e;
+		cout << hexDigits[e];
 	}
 }
