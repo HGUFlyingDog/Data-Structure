@@ -5,5 +5,6 @@
 int main()
 {
 	BiTree T;
-	InitBiTree(T);
+	CreateBiTree(T);
+
 }

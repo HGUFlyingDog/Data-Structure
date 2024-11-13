@@ -26,7 +26,7 @@ Status StackPush(SqStack& S, BiTree e)
 //顺序栈的入栈
 Status StackPop(SqStack& S)
 {
-	cout << S.base[--S.top] << "已经出来喽~(✪ω✪)" << endl;
+	cout << S.base[--S.top] << "已经出来喽~(？ω？)" << endl;
 	return OK;
 }
 //顺序栈的遍历
