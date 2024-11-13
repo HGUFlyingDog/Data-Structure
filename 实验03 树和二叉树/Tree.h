@@ -8,13 +8,14 @@ using  std::endl;
 typedef int Status;
 #define OK 1
 #define ERROR 0
-typedef int TElemType;
+typedef char TElemType;
 
 typedef struct BiTNode {
     TElemType data;
     struct BiTNode* lchild, * rchild;
-} BiTNode, *BiTree;
+} BiTNode;
+typedef BiTNode* BiTree;
 
 
-void CreateBiTree(BiTree&T);
+void CreateBiTree(BiTree& T);
 
