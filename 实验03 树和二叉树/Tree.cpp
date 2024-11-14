@@ -22,7 +22,6 @@ void CreateBiTree(BiTree& T)
 
 void InOrderTraverseRecursion(BiTree T)
 {
-	cout << "这个是中序遍历结果哦";
 	if (T == nullptr)
 	{
 		return;
@@ -90,5 +89,21 @@ void InOrderTraverse_NoRecursion(BiTree T)
 
 void PreOrderTraverse_NoRecursion(BiTree T)
 {
-
+	BiTree temp = T;
+	LinkStack S;
+	InitStack(S);
+	while (temp || !StackEmpty(S))
+	{
+		if (temp)
+		{
+			cout << temp->data;
+			StackPush(S, temp);//T入栈
+			temp = temp->lchild; // T = T->lchild 遍历
+		}
+		else //T为空
+		{
+			StackPop(S, temp);
+			temp = temp->rchild;
+		}
+	}
 }
