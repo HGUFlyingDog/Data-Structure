@@ -5,7 +5,9 @@ void CreateBiTree(BiTree& T)
 	char ch;
 	cin >> ch;
 	if (ch == '#')
-		return;
+		T = nullptr;
+	//T = nullptr; 防止遍历的时候造成越界访问
+	// 晚一步把T的孩子置空
 	else
 	{
 		T = new BiTNode;
@@ -20,6 +22,7 @@ void CreateBiTree(BiTree& T)
 
 void InOrderTraverse(BiTree T)
 {
+	cout << "这个是中序遍历结果哦";
 	if (T == nullptr)
 	{
 		return;
@@ -34,6 +37,8 @@ void InOrderTraverse(BiTree T)
 
 void PreOrderTraverse(BiTree T)
 {
+	cout << "这个是前序遍历结果哦";
+
 	if (T == nullptr)
 	{
 		return;
@@ -48,6 +53,8 @@ void PreOrderTraverse(BiTree T)
 
 void PostOrderTraverse(BiTree T)
 {
+	cout << "这个是后续遍历结果哦";
+
 	if (T == nullptr)
 	{
 		return;

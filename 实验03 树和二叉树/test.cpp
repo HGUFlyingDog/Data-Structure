@@ -6,5 +6,6 @@ int main()
 	BiTree T;
 	CreateBiTree(T);
 	PreOrderTraverse(T);
+	InOrderTraverse(T);
 
 }
