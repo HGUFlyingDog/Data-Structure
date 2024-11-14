@@ -18,4 +18,7 @@ typedef BiTNode* BiTree;
 
 
 void CreateBiTree(BiTree& T);
+void InOrderTraverse(BiTree T);
+void PreOrderTraverse(BiTree T);
+void PostOrderTraverse(BiTree T);
 
