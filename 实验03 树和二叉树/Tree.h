@@ -18,7 +18,11 @@ typedef BiTNode* BiTree;
 
 
 void CreateBiTree(BiTree& T);
-void InOrderTraverse(BiTree T);
-void PreOrderTraverse(BiTree T);
-void PostOrderTraverse(BiTree T);
+//µÝ¹é±éÀú
+void InOrderTraverseRecursion(BiTree T);
+void PreOrderTraverseRecursion(BiTree T);
+void PostOrderTraverseRecursion(BiTree T);
+//·ÇµÝ¹é±éÀú
+void InOrderTraverse_NoRecursion(BiTree T);
+void PreOrderTraverse_NoRecursion(BiTree T);
 

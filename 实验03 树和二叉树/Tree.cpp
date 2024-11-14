@@ -1,5 +1,5 @@
 #include"Tree.h"
-
+#include"stack.h"
 void CreateBiTree(BiTree& T)
 {
 	char ch;
@@ -20,7 +20,7 @@ void CreateBiTree(BiTree& T)
 	return;
 }
 
-void InOrderTraverse(BiTree T)
+void InOrderTraverseRecursion(BiTree T)
 {
 	cout << "这个是中序遍历结果哦";
 	if (T == nullptr)
@@ -29,15 +29,15 @@ void InOrderTraverse(BiTree T)
 	}
 	else
 	{
-		InOrderTraverse(T->lchild);
+		InOrderTraverseRecursion(T->lchild);
 		cout << T->data;
-		InOrderTraverse(T->rchild);
+		InOrderTraverseRecursion(T->rchild);
 	}
 }
 
-void PreOrderTraverse(BiTree T)
+void PreOrderTraverseRecursion(BiTree T)
 {
-	cout << "这个是前序遍历结果哦";
+	//cout << "这个是前序遍历结果哦";
 
 	if (T == nullptr)
 	{
@@ -46,24 +46,49 @@ void PreOrderTraverse(BiTree T)
 	else
 	{
 		cout << T->data;
-		PreOrderTraverse(T->lchild);
-		PreOrderTraverse(T->rchild);
+		PreOrderTraverseRecursion(T->lchild);
+		PreOrderTraverseRecursion(T->rchild);
 	}
 }
 
-void PostOrderTraverse(BiTree T)
+void PostOrderTraverseRecursion(BiTree T)
 {
-	cout << "这个是后续遍历结果哦";
-
 	if (T == nullptr)
 	{
 		return;
 	}
 	else
 	{
-		PostOrderTraverse(T->lchild);
+		PostOrderTraverseRecursion(T->lchild);
 
-		PostOrderTraverse(T->rchild);
+		PostOrderTraverseRecursion(T->rchild);
 		cout << T->data;
 	}
+}
+
+
+void InOrderTraverse_NoRecursion(BiTree T)
+{
+	BiTree temp = T;
+	LinkStack S;
+	InitStack(S);
+	while (temp || !StackEmpty(S))
+	{
+		if (temp)
+		{
+			StackPush(S, temp);//T入栈
+			temp = temp->lchild; // T = T->lchild 遍历
+		}
+		else //T为空
+		{
+			StackPop(S, temp);
+			cout << temp->data;
+			temp = temp->rchild;
+		}
+	}
+}
+
+void PreOrderTraverse_NoRecursion(BiTree T)
+{
+
 }
