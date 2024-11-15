@@ -12,8 +12,8 @@ typedef char TElemType;
 
 typedef struct BiTNode {
 	TElemType data;
-	struct BiTNode* lchild, * rchild;
-} BiTNode;
+	struct BiTNode	* lchild, *rchild;
+}BiTNode;
 typedef BiTNode* BiTree;
 
 void CreateBiTree(BiTree& T);

@@ -12,7 +12,7 @@ typedef int Status;
 #define OK 1
 #define ERROR 0
 
-typedef BiTNode QElemtype;	//队列存储的数据
+typedef int QElemtype;	//队列存储的数据
 
 typedef struct QNode
 {
@@ -40,5 +40,5 @@ Status EnQueue(LinkQueue& Q, QElemtype e);//入队列
 Status DeQueue(LinkQueue& Q);//出队列
 Status QueueTraverse(LinkQueue Q);//队列的遍历
 
-Status DeQueue(Queue& Q, QElemtype& e);//出队列另一种传参形式
-
+Status DeQueue(LinkQueue& Q, QElemtype& e);//出队列另一种传参形式
+bool QueueEmpty(LinkQueue Q); //队列为空
