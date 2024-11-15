@@ -21,6 +21,7 @@ Status EnQueue(LinkQueue& Q, QElemtype e)
 	else
 	{
 		Q.rear->next = p;
+		Q.rear = Q.rear->next;
 	}
 
 	return OK;
@@ -56,5 +57,5 @@ Status DeQueue(LinkQueue& Q, QElemtype& e)
 
 bool QueueEmpty(LinkQueue Q)
 {
-	return Q.front == Q.rear;
+	return!(Q.front);
 }

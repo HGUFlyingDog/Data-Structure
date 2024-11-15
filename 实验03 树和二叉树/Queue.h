@@ -12,7 +12,7 @@ typedef int Status;
 #define OK 1
 #define ERROR 0
 
-typedef int QElemtype;	//队列存储的数据
+typedef BiTree QElemtype;	//队列存储的数据
 
 typedef struct QNode
 {
