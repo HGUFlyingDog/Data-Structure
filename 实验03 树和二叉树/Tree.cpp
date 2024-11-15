@@ -110,24 +110,26 @@ void PreOrderTraverse_NoRecursion(BiTree T)
 	}
 }
 
-//void LevelOrderTraverse(BiTree T)
-//{
-//	LinkQueue Q;
-//	InitQueue(Q);
-//	
-//	while (T||QueueEmpty(Q))//T 不为空或者 队列不为空
-//	{
-//		if (T)//T不是空的
-//		{
-//			EnQueue(Q, T);
-//		}
-//		else//T是空的
-//		{
-//			DeQueue(Q, T);
-//
-//		}
-//		
-//
-//		
-//	}
-//}
+void LevelOrderTraverse(BiTree T)
+{
+	LinkQueue Q;
+	InitQueue(Q);
+	EnQueue(Q, T);
+
+	while (!QueueEmpty(Q))
+	{
+		
+		DeQueue(Q, T);
+
+		if (T->lchild)
+		{
+			EnQueue(Q, T->lchild);
+		}
+		if (T->rchild)
+		{
+			EnQueue(Q, T->rchild);
+		}
+	}
+	return;
+	
+}

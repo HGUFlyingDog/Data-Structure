@@ -11,6 +11,7 @@ Status InitQueue(LinkQueue& Q)
 
 Status EnQueue(LinkQueue& Q, QElemtype e)
 {
+	if (e == nullptr) return ERROR;
 	QNode* p = new QNode;
 	p->data = e;
 
@@ -20,6 +21,7 @@ Status EnQueue(LinkQueue& Q, QElemtype e)
 	}
 	else
 	{
+		p->next = Q.rear;
 		Q.rear->next = p;
 		Q.rear = Q.rear->next;
 	}
@@ -49,9 +51,9 @@ Status QueueTraverse(LinkQueue Q)
 //另一种形式的出队列，用参数返回类型
 Status DeQueue(LinkQueue& Q, QElemtype& e)
 {
-	if (Q.front == Q.rear) return ERROR; // 队列空
+	if (QueueEmpty(Q)) return ERROR; // 队列空
 	e = Q.front->data;
-	Q.rear = Q.rear->next;
+	Q.front = Q.front->next;
 	return OK;
 }
 

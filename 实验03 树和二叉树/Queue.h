@@ -26,15 +26,6 @@ typedef struct
 	QueuePtr rear;  // 队尾指针
 } LinkQueue;
 
-typedef struct Queue
-{
-	QElemtype* base; // 新增的数组成员
-	int front; // 队列头索引
-	int rear;  // 队列尾索引
-} Queue;
-//顺序循环队列的结构
-
-
 Status InitQueue(LinkQueue& Q);//队列的初始化
 Status EnQueue(LinkQueue& Q, QElemtype e);//入队列
 Status DeQueue(LinkQueue& Q);//出队列
