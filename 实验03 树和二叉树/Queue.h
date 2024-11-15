@@ -1,5 +1,5 @@
 #pragma once
-
+#include"Tree.h"
 #include<iostream>
 
 #define MAXQSIZE 100
@@ -12,7 +12,7 @@ typedef int Status;
 #define OK 1
 #define ERROR 0
 
-typedef int QElemtype;	//队列存储的数据
+typedef BiTNode QElemtype;	//队列存储的数据
 
 typedef struct QNode
 {
@@ -34,10 +34,6 @@ typedef struct Queue
 } Queue;
 //顺序循环队列的结构
 
-Status InitQueue(Queue& Q);//队列的初始化
-Status EnQueue(Queue& Q, QElemtype e);//入队列
-Status DeQueue(Queue& Q);//出队列
-Status QueueTraverse(Queue Q);//队列的遍历
 
 Status InitQueue(LinkQueue& Q);//队列的初始化
 Status EnQueue(LinkQueue& Q, QElemtype e);//入队列
