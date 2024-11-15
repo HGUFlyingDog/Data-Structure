@@ -134,3 +134,25 @@ void LevelOrderTraverse(BiTree T)
 	return;
 	
 }
+
+//树的节点个数
+int NodeCount(BiTree T)
+{
+	if (T == nullptr) return 0;
+	else return NodeCount(T->lchild) + NodeCount(T->rchild) + 1;
+}
+
+
+//树的叶节点个数
+int LeafNodeCount(BiTree T)
+{
+	if (T == nullptr) return 1;
+	else return (NodeCount(T->lchild) + NodeCount(T->rchild))/2;
+}
+
+//树的深度
+int Depth(BiTree T)
+{
+	if (T == nullptr) return 0;
+	else return Depth(T->lchild) > Depth(T->rchild) ? Depth(T->lchild) +1: Depth(T->rchild)+1;
+}

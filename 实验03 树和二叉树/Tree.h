@@ -26,3 +26,8 @@ void InOrderTraverse_NoRecursion(BiTree T);
 void PreOrderTraverse_NoRecursion(BiTree T);
 //≤„–Ú±È¿˙
 void LevelOrderTraverse(BiTree T);
+
+int NodeCount(BiTree T);
+
+int Depth(BiTree T);
+int LeafNodeCount(BiTree T);
