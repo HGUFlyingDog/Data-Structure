@@ -120,7 +120,7 @@ void LevelOrderTraverse(BiTree T)
 	{
 		
 		DeQueue(Q, T);
-
+		cout << T->data;
 		if (T->lchild)
 		{
 			EnQueue(Q, T->lchild);
@@ -129,6 +129,7 @@ void LevelOrderTraverse(BiTree T)
 		{
 			EnQueue(Q, T->rchild);
 		}
+
 	}
 	return;
 	
