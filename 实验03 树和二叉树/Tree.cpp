@@ -1,5 +1,7 @@
 #include"Tree.h"
 #include"stack.h"
+#include"Queue.h"
+
 void CreateBiTree(BiTree& T)
 {
 	char ch;
@@ -105,5 +107,15 @@ void PreOrderTraverse_NoRecursion(BiTree T)
 			StackPop(S, temp);
 			temp = temp->rchild;
 		}
+	}
+}
+
+void LevelOrderTraverse(BiTree T)
+{
+	LinkQueue Q;
+	InitQueue(Q);
+	while (T||)//T 不为空或者 队列不为空
+	{
+
 	}
 }

@@ -27,7 +27,7 @@ Status EnQueue(LinkQueue& Q, QElemtype e)
 
 Status DeQueue(LinkQueue& Q)
 {
-	cout << Q.front->data<<"已出队"<< endl;
+	cout << Q.front->data-><<"已出队"<< endl;
 	Q.front = Q.front->next;
 	return OK;
 

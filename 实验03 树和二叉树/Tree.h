@@ -11,11 +11,10 @@ typedef int Status;
 typedef char TElemType;
 
 typedef struct BiTNode {
-    TElemType data;
-    struct BiTNode* lchild, * rchild;
+	TElemType data;
+	struct BiTNode* lchild, * rchild;
 } BiTNode;
 typedef BiTNode* BiTree;
-
 
 void CreateBiTree(BiTree& T);
 //µ›πÈ±È¿˙
@@ -25,4 +24,5 @@ void PostOrderTraverseRecursion(BiTree T);
 //∑«µ›πÈ±È¿˙
 void InOrderTraverse_NoRecursion(BiTree T);
 void PreOrderTraverse_NoRecursion(BiTree T);
-
+//≤„–Ú±È¿˙
+void LevelOrderTraverse(BiTree T);
