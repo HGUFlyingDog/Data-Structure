@@ -30,4 +30,4 @@ void LevelOrderTraverse(BiTree T);
 int NodeCount(BiTree T);
 
 int Depth(BiTree T);
-int LeafNodeCount(BiTree T);
+int countLeafNodes(BiTree T);

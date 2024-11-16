@@ -141,13 +141,27 @@ int NodeCount(BiTree T)
 	if (T == nullptr) return 0;
 	else return NodeCount(T->lchild) + NodeCount(T->rchild) + 1;
 }
+//
+////树的叶节点个数
+//int LeafNodeCount(BiTree T)
+//{
+//	if (T == nullptr) return 1;
+//	else return (LeafNodeCount(T->lchild) + LeafNodeCount(T->rchild))/2;
+//}
 
-
-//树的叶节点个数
-int LeafNodeCount(BiTree T)
+int countLeafNodes(BiTree T ) 
 {
-	if (T == nullptr) return 1;
-	else return (NodeCount(T->lchild) + NodeCount(T->rchild))/2;
+	if (T == nullptr) {
+		return 0;
+	}
+
+	// 如果是叶子节点，返回1
+	if (T->lchild == nullptr && T->rchild == nullptr) {
+		return 1;
+	}
+
+	// 递归计算左子树和右子树的叶子节点个数并相加
+	return countLeafNodes(T->lchild) + countLeafNodes(T->rchild);
 }
 
 //树的深度
