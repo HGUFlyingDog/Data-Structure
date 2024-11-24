@@ -27,7 +27,9 @@ void PreOrderTraverse_NoRecursion(BiTree T);
 //层序遍历
 void LevelOrderTraverse(BiTree T);
 
+//计算节点数量（多写了，但是没啥问题就不删除了）
 int NodeCount(BiTree T);
-
+//计算树的深度
 int Depth(BiTree T);
+//计算树的叶节点的数量
 int countLeafNodes(BiTree T);

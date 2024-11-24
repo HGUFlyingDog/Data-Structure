@@ -2,6 +2,7 @@
 #include"Queue.h"
 int main()
 {
+	
 	BiTree T;
 	CreateBiTree(T);
 

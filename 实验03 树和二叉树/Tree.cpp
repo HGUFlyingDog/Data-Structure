@@ -67,7 +67,6 @@ void PostOrderTraverseRecursion(BiTree T)
 	}
 }
 
-
 void InOrderTraverse_NoRecursion(BiTree T)
 {
 	BiTree temp = T;
@@ -118,7 +117,6 @@ void LevelOrderTraverse(BiTree T)
 
 	while (!QueueEmpty(Q))
 	{
-		
 		DeQueue(Q, T);
 		cout << T->data;
 		if (T->lchild)
@@ -129,36 +127,26 @@ void LevelOrderTraverse(BiTree T)
 		{
 			EnQueue(Q, T->rchild);
 		}
-
 	}
 	return;
-	
 }
 
 //树的节点个数
 int NodeCount(BiTree T)
 {
-	if (T == nullptr) return 0;
-	else return NodeCount(T->lchild) + NodeCount(T->rchild) + 1;
+	if (T == nullptr) return 0;//如果递归发现T是空指针，则返回节点的数量为0
+	else return NodeCount(T->lchild) + NodeCount(T->rchild) + 1;//否则（T不是有左右节点）那么返回左右节点的数量的和并且加上自己的所在的节点
 }
-//
-////树的叶节点个数
-//int LeafNodeCount(BiTree T)
-//{
-//	if (T == nullptr) return 1;
-//	else return (LeafNodeCount(T->lchild) + LeafNodeCount(T->rchild))/2;
-//}
 
-int countLeafNodes(BiTree T ) 
+//计算叶子数量
+int countLeafNodes(BiTree T)
 {
-	if (T == nullptr) {
-		return 0;
-	}
+	if (T == nullptr) //如果递归发现T空是指针，则返回叶子的数量为0
+	return 0;
 
 	// 如果是叶子节点，返回1
-	if (T->lchild == nullptr && T->rchild == nullptr) {
+	if (T->lchild == nullptr && T->rchild == nullptr)
 		return 1;
-	}
 
 	// 递归计算左子树和右子树的叶子节点个数并相加
 	return countLeafNodes(T->lchild) + countLeafNodes(T->rchild);
@@ -167,6 +155,9 @@ int countLeafNodes(BiTree T )
 //树的深度
 int Depth(BiTree T)
 {
+	//如果递归发现T空是指针，则返回叶子的数量为0
 	if (T == nullptr) return 0;
-	else return Depth(T->lchild) > Depth(T->rchild) ? Depth(T->lchild) +1: Depth(T->rchild)+1;
+
+	//否则返回左树深度和右树的深度比较大的那个并且加上自己的深度
+	else return Depth(T->lchild) > Depth(T->rchild) ? Depth(T->lchild) + 1 : Depth(T->rchild) + 1;
 }
