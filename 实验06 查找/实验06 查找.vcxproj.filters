@@ -21,6 +21,9 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TestOP.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sort.h">
@@ -29,10 +32,5 @@
     <ClInclude Include="TestOP.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TestOP.cpp">
-      <Filter>源文件</Filter>
-    </None>
   </ItemGroup>
 </Project>

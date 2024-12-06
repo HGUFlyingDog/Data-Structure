@@ -3,7 +3,8 @@
 void TestOP()
 {
 	srand(time(0));
-	const int N = 100;
+	const int N = 10000;
+	cout << "测试数据量为：" << N << endl;
 	int* a1 = (int*)malloc(sizeof(int) * N);
 	int* a2 = (int*)malloc(sizeof(int) * N);
 	int* a3 = (int*)malloc(sizeof(int) * N);
@@ -51,6 +52,8 @@ void TestOP()
 	int begin7 = clock();
 	BubbleSort(a7, N);
 	int end7 = clock();
+	CheckSort(a7, N);
+
 
 	cout << "InsertSort:" << end1 - begin1 << endl;
 	cout << "ShellSort:" << end2 - begin2 << endl;

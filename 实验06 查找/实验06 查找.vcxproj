@@ -135,7 +135,7 @@
     <ClInclude Include="TestOP.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestOP.cpp" />
+    <ClCompile Include="TestOP.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,9 +9,9 @@ void swap(int& i, int& j)
 
 void CheckSort(int* a, int n)
 {
-	for (int i = 0; i < n-1; i++)
+	for (int i = 0; i < n - 1; i++)
 	{
-		if (a[i] >= a[i + 1])
+		if (a[i] > a[i + 1])
 		{
 			cout << "排序未完成" << endl;
 		}
@@ -20,24 +20,27 @@ void CheckSort(int* a, int n)
 
 void BubbleSort(int* a, int n)
 {
-
 	for (int j = n - 1; j >= 0; j--)
 	{
+		int flag = 0;
 		for (int i = 0; i < j; i++)
 		{
-			if (a[i] >= a[i + 1])
+			if (a[i] >a[i + 1])
 				swap(a[i], a[i + 1]);
+			flag = 1;
+		}
+		if (flag == 0)
+		{
+			break;
 		}
 	}
 }
 //debug 记录
 //会写单趟，重复的话找不准i和j 的位置
 
-
 void ShellSort(int* a, int n)
 {
 	//先排序大面，再缩小
-
 }
 
 //void TestOP()
