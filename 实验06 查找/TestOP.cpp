@@ -1,10 +1,11 @@
 #include "TestOP.h"
+#define SIZE 10000 //近似随机数组的长度
 
 void TestOP()
 {
 	srand(time(0));
 	const int N = 10000;
-	cout << "测试数据量为：" << N << endl;
+	cout << "完全无序测试数据量为：" << N << endl;
 	int* a1 = (int*)malloc(sizeof(int) * N);
 	int* a2 = (int*)malloc(sizeof(int) * N);
 	int* a3 = (int*)malloc(sizeof(int) * N);
@@ -23,7 +24,6 @@ void TestOP()
 		a6[i] = a1[i];
 		a7[i] = a1[i];
 	}
-
 
 	int begin1 = clock();
 	//InsertSort(a1, N);
@@ -46,7 +46,7 @@ void TestOP()
 	int end5 = clock();
 
 	int begin6 = clock();
-	//MergeSort(a6, N);
+	BubbleSort_Bad(a6, N);
 	int end6 = clock();
 
 	int begin7 = clock();
@@ -54,14 +54,16 @@ void TestOP()
 	int end7 = clock();
 	CheckSort(a7, N);
 
+	//cout << "InsertSort:" << end1 - begin1 << endl;
+	//cout << "ShellSort:" << end2 - begin2 << endl;
+	//cout << "SelectSort:" << end3 - begin3 << endl;
+	//cout << "HeapSort:" << end4 - begin4 << endl;
 
-	cout << "InsertSort:" << end1 - begin1 << endl;
-	cout << "ShellSort:" << end2 - begin2 << endl;
-	cout << "SelectSort:" << end3 - begin3 << endl;
-	cout << "HeapSort:" << end4 - begin4 << endl;
 	cout << "BubbleSort:" << end7 - begin7 << endl;
-	cout << "QuickSort:" << end5 - begin5 << endl;
-	cout << "MergeSort:" << end6 - begin6 << endl;
+	cout << "BubbleSort_Bad:" << end6 - begin6 << endl;
+
+	//cout << "QuickSort:" << end5 - begin5 << endl;
+	//cout << "MergeSort:" << end6 - begin6 << endl;
 
 	free(a1);
 	free(a2);
@@ -70,3 +72,66 @@ void TestOP()
 	free(a5);
 	free(a6);
 }
+
+void generate_nearly_sorted_array(int arr[], int size, double disorder_factor) {
+	// 初始化数组为完全有序
+	for (int i = 0; i < size; ++i) {
+		arr[i] = i;
+	}
+
+	// 计算需要交换的次数
+	int num_swaps = (int)(size * disorder_factor);
+
+	// 随机交换元素
+	for (int i = 0; i < num_swaps; ++i) {
+		int idx1 = rand() % size;
+		int idx2 = rand() % size;
+
+		// 交换元素
+		int temp = arr[idx1];
+		arr[idx1] = arr[idx2];
+		arr[idx2] = temp;
+	}
+}
+
+void copy_array(int source[], int destination[], int size) {
+	for (int i = 0; i < size; ++i) {
+		destination[i] = source[i];
+	}
+}
+
+void Testorder()
+{
+	double disorder_factor = 0.2;  // 数组的无序程度（20%的元素可能被打乱）
+
+	// 创建一个数组
+	int arr[SIZE];
+
+	// 初始化随机数种子
+	srand(time(NULL));
+
+	// 生成近似有序的数组
+	generate_nearly_sorted_array(arr, SIZE, disorder_factor);
+
+	int arr2[SIZE];
+	copy_array(arr, arr2, SIZE );
+
+	cout << "近似有序测试数据量为：" << SIZE << endl;
+
+	int begin1 = clock();
+	BubbleSort(arr, SIZE);
+	int end1 = clock();
+	CheckSort(arr, SIZE);
+	cout << "BubbleSort:" << end1 - begin1 << endl;
+
+
+	int begin2 = clock();
+	BubbleSort_Bad(arr2, SIZE);
+	int end2 = clock();
+	CheckSort(arr2, SIZE);
+	
+	cout << "BubbleSort_Bad:" << end2 - begin2 << endl;
+
+
+}
+

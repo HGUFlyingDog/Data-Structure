@@ -25,18 +25,33 @@ void BubbleSort(int* a, int n)
 		int flag = 0;
 		for (int i = 0; i < j; i++)
 		{
-			if (a[i] >a[i + 1])
+			if (a[i] > a[i + 1])
+			{
 				swap(a[i], a[i + 1]);
-			flag = 1;
+				flag = 1;
+			}
 		}
+
 		if (flag == 0)
 		{
 			break;
 		}
 	}
 }
-//debug 记录
-//会写单趟，重复的话找不准i和j 的位置
+
+void BubbleSort_Bad(int* a, int n)
+{
+	for (int j = n - 1; j >= 0; j--)
+	{
+		for (int i = 0; i < j; i++)
+		{
+			if (a[i] > a[i + 1])
+			{
+				swap(a[i], a[i + 1]);
+			}
+		}
+	}
+}
 
 void ShellSort(int* a, int n)
 {
