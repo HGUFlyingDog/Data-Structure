@@ -132,6 +132,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sort.h" />
+    <ClInclude Include="TestOP.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestOP.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,5 +14,7 @@ int main()
 		cout << x << " ";
 	}
 	cout << endl;
+
+	TestOP();
 	return 0;
 }
