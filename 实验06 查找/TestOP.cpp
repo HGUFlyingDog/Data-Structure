@@ -1,4 +1,4 @@
-#include"TestOP.h"
+#include "TestOP.h"
 
 void TestOP()
 {
@@ -52,14 +52,13 @@ void TestOP()
 	BubbleSort(a7, N);
 	int end7 = clock();
 
-	cout<<"InsertSort:"<< end1 - begin1<<endl;
-
-	cout<<"ShellSort:"<<end2 - begin2<<endl;
-	cout<<"SelectSort:"<<end3 - begin3<<endl;
-	cout<<"HeapSort:"<<end4 - begin4<<endl;
-	cout<<"BubbleSort:"<<end7 - begin7<<endl;
-	cout<<"QuickSort:"<<end5 - begin5<<endl;
-	cout<<"MergeSort:"<<end6 - begin6<<endl;
+	cout << "InsertSort:" << end1 - begin1 << endl;
+	cout << "ShellSort:" << end2 - begin2 << endl;
+	cout << "SelectSort:" << end3 - begin3 << endl;
+	cout << "HeapSort:" << end4 - begin4 << endl;
+	cout << "BubbleSort:" << end7 - begin7 << endl;
+	cout << "QuickSort:" << end5 - begin5 << endl;
+	cout << "MergeSort:" << end6 - begin6 << endl;
 
 	free(a1);
 	free(a2);
