@@ -1,10 +1,10 @@
 #include "TestOP.h"
-#define SIZE 10000 //近似随机数组的长度
+#define SIZE 100000 //近似随机数组的长度
 
 void TestOP()
 {
 	srand(time(0));
-	const int N = 10000;
+	const int N = 100;
 	cout << "完全无序测试数据量为：" << N << endl;
 	int* a1 = (int*)malloc(sizeof(int) * N);
 	int* a2 = (int*)malloc(sizeof(int) * N);
@@ -46,11 +46,11 @@ void TestOP()
 	int end5 = clock();
 
 	int begin6 = clock();
-	BubbleSort_Bad(a6, N);
+	//BubbleSort_Bad(a6, N);
 	int end6 = clock();
 
 	int begin7 = clock();
-	BubbleSort(a7, N);
+	Qsort(a7,0,N);
 	int end7 = clock();
 	CheckSort(a7, N);
 
@@ -119,18 +119,18 @@ void Testorder()
 	cout << "近似有序测试数据量为：" << SIZE << endl;
 
 	int begin1 = clock();
-	BubbleSort(arr, SIZE);
+	//Qsort(arr, 0,SIZE);
 	int end1 = clock();
-	CheckSort(arr, SIZE);
-	cout << "BubbleSort:" << end1 - begin1 << endl;
+	//CheckSort(arr, SIZE);
+	cout << "Qsort:" << end1 - begin1 << endl;
 
 
 	int begin2 = clock();
-	BubbleSort_Bad(arr2, SIZE);
+	BubbleSort(arr2, SIZE);
 	int end2 = clock();
 	CheckSort(arr2, SIZE);
 	
-	cout << "BubbleSort_Bad:" << end2 - begin2 << endl;
+	cout << "BubbleSort：" << end2 - begin2 << endl;
 
 
 }

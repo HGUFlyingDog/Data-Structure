@@ -11,10 +11,7 @@ void CheckSort(int* a, int n)
 {
 	for (int i = 0; i < n - 1; i++)
 	{
-		if (a[i] > a[i + 1])
-		{
-			cout << "排序未完成" << endl;
-		}
+		assert(a[i] <= a[i + 1]);
 	}
 }
 
@@ -53,75 +50,47 @@ void BubbleSort_Bad(int* a, int n)
 	}
 }
 
-void ShellSort(int* a, int n)
-{
-	//先排序大面，再缩小
-}
-
-//void TestOP()
+//void ShellSort(int* a, int n)
 //{
-//	srand(time(0));
-//	const int N = 100;
-//	int* a1 = (int*)malloc(sizeof(int) * N);
-//	int* a2 = (int*)malloc(sizeof(int) * N);
-//	int* a3 = (int*)malloc(sizeof(int) * N);
-//	int* a4 = (int*)malloc(sizeof(int) * N);
-//	int* a5 = (int*)malloc(sizeof(int) * N);
-//	int* a6 = (int*)malloc(sizeof(int) * N);
-//	int* a7 = (int*)malloc(sizeof(int) * N);
+//	int gap = n / 2;
 //
-//	for (int i = 0; i < N; ++i)
+//	for (int i = 0; i < n - gap; i += gap)
 //	{
-//		a1[i] = rand();
-//		a2[i] = a1[i];
-//		a3[i] = a1[i];
-//		a4[i] = a1[i];
-//		a5[i] = a1[i];
-//		a6[i] = a1[i];
-//		a7[i] = a1[i];
+//		if (a[i] > a[i + gap])
+//		{
+//			swap(a[i], a[i + gap]);
+//		}
 //	}
-//
-//
-//	int begin1 = clock();
-//	//InsertSort(a1, N);
-//	int end1 = clock();
-//
-//	int begin2 = clock();
-//	//ShellSort(a2, N);
-//	int end2 = clock();
-//
-//	int begin3 = clock();
-//	//SelectSort(a3, N);
-//	int end3 = clock();
-//
-//	int begin4 = clock();
-//	//HeapSort(a4, N);
-//	int end4 = clock();
-//
-//	int begin5 = clock();
-//	//QuickSort(a5, 0, N - 1);
-//	int end5 = clock();
-//
-//	int begin6 = clock();
-//	//MergeSort(a6, N);
-//	int end6 = clock();
-//
-//	int begin7 = clock();
-//	BubbleSort(a7, N);
-//	int end7 = clock();
-//
-//	cout << "InsertSort:" << end1 - begin1 << endl;
-//	cout << "ShellSort:" << end2 - begin2 << endl;
-//	cout << "SelectSort:" << end3 - begin3 << endl;
-//	cout << "HeapSort:" << end4 - begin4 << endl;
-//	cout << "BubbleSort:" << end7 - begin7 << endl;
-//	cout << "QuickSort:" << end5 - begin5 << endl;
-//	cout << "MergeSort:" << end6 - begin6 << endl;
-//
-//	free(a1);
-//	free(a2);
-//	free(a3);
-//	free(a4);
-//	free(a5);
-//	free(a6);
 //}
+
+void Qsort(int* a, int begin, int end)
+{
+	//停止条件
+	if (begin >= end ) 
+	{
+		return;
+	}
+	int left = begin, right = end - 1;
+
+	int key = a[left];
+	while (left < right)
+	{
+		//右边找小，不是的话移动,是的话不移动，并且跳出循环
+		while (left < right && a[right] >= key)
+		{
+			right--;
+		}
+		//左边找大，不是的话移动，是的话不移动，并且跳出循环
+		while (left < right && a[left] <= key)
+		{
+			left++;
+		}
+
+		swap(a[left], a[right]);
+	}
+
+	swap(a[begin], a[right]);
+	//递归调用部分
+	Qsort(a, begin, right);
+	Qsort(a, right + 1, end);
+}
