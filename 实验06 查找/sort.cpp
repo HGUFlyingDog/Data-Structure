@@ -34,7 +34,7 @@ void BubbleSort(int* a, int n)
 
 		if (flag == 0)
 		{
-			cout<<"Release 不要跳过我的BubbleSort哇" << endl;//必须要加入这句话，如果没有输出的话，我的bubble就不执行辣 (*T_T*) 
+			//cout<<"Release 不要跳过我的BubbleSort哇" << endl;//必须要加入这句话，如果没有输出的话，我的bubble就不执行辣 (*T_T*) 
 			break;
 		}
 	}
