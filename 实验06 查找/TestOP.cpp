@@ -102,7 +102,7 @@ void copy_array(int source[], int destination[], int size) {
 
 void Testorder()
 {
-	double disorder_factor = 0.2;  // 数组的无序程度（20%的元素可能被打乱）
+	double disorder_factor = 1;  // 数组的无序程度（20%的元素可能被打乱）
 
 	// 创建一个数组
 	int arr[SIZE];
@@ -119,15 +119,17 @@ void Testorder()
 	cout << "近似有序测试数据量为：" << SIZE << endl;
 
 	int begin1 = clock();
-	//Qsort(arr, 0,SIZE);
+	Qsort(arr, 0,SIZE);
 	int end1 = clock();
-	//CheckSort(arr, SIZE);
+	CheckSort(arr, SIZE);
 	cout << "Qsort:" << end1 - begin1 << endl;
 
 
 	int begin2 = clock();
+	//cout << "begin2 = " << begin2 << endl;
 	BubbleSort(arr2, SIZE);
 	int end2 = clock();
+	//cout << "end2 = " << end2 << endl;
 	CheckSort(arr2, SIZE);
 	
 	cout << "BubbleSort：" << end2 - begin2 << endl;

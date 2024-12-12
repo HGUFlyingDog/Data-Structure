@@ -1,4 +1,4 @@
-#include"sort.h"
+ï»¿#include"sort.h"
 
 void swap(int& i, int& j)
 {
@@ -17,8 +17,11 @@ void CheckSort(int* a, int n)
 
 void BubbleSort(int* a, int n)
 {
+	
 	for (int j = n - 1; j >= 0; j--)
 	{
+		
+
 		int flag = 0;
 		for (int i = 0; i < j; i++)
 		{
@@ -31,9 +34,11 @@ void BubbleSort(int* a, int n)
 
 		if (flag == 0)
 		{
+			cout<<"Release ä¸è¦è·³è¿‡æˆ‘çš„BubbleSortå“‡" << endl;//å¿…é¡»è¦åŠ å…¥è¿™å¥è¯ï¼Œå¦‚æœæ²¡æœ‰è¾“å‡ºçš„è¯ï¼Œæˆ‘çš„bubbleå°±ä¸æ‰§è¡Œè¾£Â (*T_T*)Â 
 			break;
 		}
 	}
+
 }
 
 void BubbleSort_Bad(int* a, int n)
@@ -65,7 +70,7 @@ void BubbleSort_Bad(int* a, int n)
 
 void Qsort(int* a, int begin, int end)
 {
-	//Í£Ö¹Ìõ¼ş
+	//åœæ­¢æ¡ä»¶
 	if (begin >= end ) 
 	{
 		return;
@@ -75,12 +80,12 @@ void Qsort(int* a, int begin, int end)
 	int key = a[left];
 	while (left < right)
 	{
-		//ÓÒ±ßÕÒĞ¡£¬²»ÊÇµÄ»°ÒÆ¶¯,ÊÇµÄ»°²»ÒÆ¶¯£¬²¢ÇÒÌø³öÑ­»·
+		//å³è¾¹æ‰¾å°ï¼Œä¸æ˜¯çš„è¯ç§»åŠ¨,æ˜¯çš„è¯ä¸ç§»åŠ¨ï¼Œå¹¶ä¸”è·³å‡ºå¾ªç¯
 		while (left < right && a[right] >= key)
 		{
 			right--;
 		}
-		//×ó±ßÕÒ´ó£¬²»ÊÇµÄ»°ÒÆ¶¯£¬ÊÇµÄ»°²»ÒÆ¶¯£¬²¢ÇÒÌø³öÑ­»·
+		//å·¦è¾¹æ‰¾å¤§ï¼Œä¸æ˜¯çš„è¯ç§»åŠ¨ï¼Œæ˜¯çš„è¯ä¸ç§»åŠ¨ï¼Œå¹¶ä¸”è·³å‡ºå¾ªç¯
 		while (left < right && a[left] <= key)
 		{
 			left++;
@@ -90,7 +95,7 @@ void Qsort(int* a, int begin, int end)
 	}
 
 	swap(a[begin], a[right]);
-	//µİ¹éµ÷ÓÃ²¿·Ö
+	//é€’å½’è°ƒç”¨éƒ¨åˆ†
 	Qsort(a, begin, right);
 	Qsort(a, right + 1, end);
 }
