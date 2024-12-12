@@ -4,7 +4,7 @@
 void TestOP()
 {
 	srand(time(0));
-	const int N = 100;
+	const int N = 100000;
 	cout << "完全无序测试数据量为：" << N << endl;
 	int* a1 = (int*)malloc(sizeof(int) * N);
 	int* a2 = (int*)malloc(sizeof(int) * N);
@@ -46,21 +46,21 @@ void TestOP()
 	int end5 = clock();
 
 	int begin6 = clock();
-	//BubbleSort_Bad(a6, N);
+	//BubbleSort(a6, N);
 	int end6 = clock();
 
 	int begin7 = clock();
 	Qsort(a7,0,N);
 	int end7 = clock();
-	CheckSort(a7, N);
+	
 
 	//cout << "InsertSort:" << end1 - begin1 << endl;
 	//cout << "ShellSort:" << end2 - begin2 << endl;
 	//cout << "SelectSort:" << end3 - begin3 << endl;
 	//cout << "HeapSort:" << end4 - begin4 << endl;
 
-	cout << "BubbleSort:" << end7 - begin7 << endl;
-	cout << "BubbleSort_Bad:" << end6 - begin6 << endl;
+	//cout << "BubbleSort:" << end6 - begin6 << endl;
+	cout << "Qsort:" << end7 - begin7 << endl;
 
 	//cout << "QuickSort:" << end5 - begin5 << endl;
 	//cout << "MergeSort:" << end6 - begin6 << endl;
@@ -118,22 +118,22 @@ void Testorder()
 
 	cout << "近似有序测试数据量为：" << SIZE << endl;
 
-	int begin1 = clock();
-	Qsort(arr, 0,SIZE);
-	int end1 = clock();
-	CheckSort(arr, SIZE);
-	cout << "Qsort:" << end1 - begin1 << endl;
-
-
-	int begin2 = clock();
-	//cout << "begin2 = " << begin2 << endl;
-	BubbleSort(arr2, SIZE);
-	int end2 = clock();
-	//cout << "end2 = " << end2 << endl;
-	CheckSort(arr2, SIZE);
 	
-	cout << "BubbleSort：" << end2 - begin2 << endl;
 
+	//int begin2 = clock();
+	////cout << "begin2 = " << begin2 << endl;
+	//BubbleSort(arr2, SIZE);
+	//int end2 = clock();
+	////cout << "end2 = " << end2 << endl;
+
+	//
+	//cout << "BubbleSort：" << end2 - begin2 << endl;
+
+	int begin1 = clock();
+	Qsort(arr, 0, SIZE);
+	int end1 = clock();
+
+	cout << "Qsort:" << end1 - begin1 << endl;
 
 }
 

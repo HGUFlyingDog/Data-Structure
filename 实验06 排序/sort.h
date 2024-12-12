@@ -13,5 +13,5 @@ void Qsort(int* a, int begin, int end);
 
 
 
-void CheckSort(int* a, int n);
+void CheckSort();
 //void ShellSort(int* a, int n);

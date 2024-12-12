@@ -15,10 +15,11 @@ int main()
 	//{
 	//	cout << x << " ";
 	//}
+	//CheckSort();
 
 	Testorder();
 
-	//TestOP();
+	TestOP();
 
 	return 0;
 }

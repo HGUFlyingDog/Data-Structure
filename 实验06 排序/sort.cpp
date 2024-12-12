@@ -7,12 +7,24 @@ void swap(int& i, int& j)
 	j = temp;
 }
 
-void CheckSort(int* a, int n)
+void CheckSort()
 {
-	for (int i = 0; i < n - 1; i++)
+	srand(time(0));
+	const int N = 100;
+	cout << "完全无序测试数据量为：" << N << endl;
+	int* a1 = (int*)malloc(sizeof(int) * N);
+	for (int i = 0; i < N; ++i)
 	{
-		assert(a[i] <= a[i + 1]);
+		a1[i] = rand();
 	}
+	Qsort(a1, 0, N);
+
+
+	for (int i = 0; i < N - 1; i++)
+	{
+		assert(a1[i] <= a1[i + 1]);
+	}
+	cout << "经过超级严谨的测试，这个排序没问题！！" << endl;
 }
 
 void BubbleSort(int* a, int n)
@@ -68,6 +80,8 @@ void BubbleSort_Bad(int* a, int n)
 //	}
 //}
 
+
+
 void Qsort(int* a, int begin, int end)
 {
 	//停止条件
@@ -75,9 +89,14 @@ void Qsort(int* a, int begin, int end)
 	{
 		return;
 	}
+
 	int left = begin, right = end - 1;
+	//随机选择key
+	int randi = left + (rand() % (right - left+1));
+	swap(a[left], a[randi]);
 
 	int key = a[left];
+
 	while (left < right)
 	{
 		//右边找小，不是的话移动,是的话不移动，并且跳出循环
