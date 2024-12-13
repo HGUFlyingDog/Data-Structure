@@ -7,19 +7,19 @@ using namespace std;
 
 int main()
 {
-	int test[6] = {3,2,4,1,5,4};
+	int test[5] = {3,2,4,1,5};
 	
 
-	//Qsort(test, 0, 6); //[)
-	//for (auto x : test)
-	//{
-	//	cout << x << " ";
-	//}
+	SelectSort(test, 5); 
+	for (auto x : test)
+	{
+		cout << x << " ";
+	}
 	//CheckSort();
 
-	Testorder();
-
-	TestOP();
+	//Testorder();
+	
+	//TestOP();
 
 	return 0;
 }

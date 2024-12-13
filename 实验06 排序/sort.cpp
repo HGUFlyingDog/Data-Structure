@@ -1,5 +1,23 @@
 ﻿#include"sort.h"
 
+void SelectSort(int* a, int n)
+{
+	for (int i = 0; i < n - 1; i++)//循环扩大
+	{
+		int small = i;
+		for (int j = i; j < n; j++)//选择最小的
+		{
+			
+			if (a[j]<a[small])
+			{
+				small = j;
+			}
+			
+		}
+		swap(a[i], a[small]);
+	}
+}
+
 void swap(int& i, int& j)
 {
 	int temp = i;
@@ -7,33 +25,29 @@ void swap(int& i, int& j)
 	j = temp;
 }
 
-void CheckSort()
-{
-	srand(time(0));
-	const int N = 100;
-	cout << "完全无序测试数据量为：" << N << endl;
-	int* a1 = (int*)malloc(sizeof(int) * N);
-	for (int i = 0; i < N; ++i)
+	void CheckSort()
 	{
-		a1[i] = rand();
-	}
-	Qsort(a1, 0, N);
+		srand(time(0));
+		const int N = 100;
+		cout << "完全无序测试数据量为：" << N << endl;
+		int* a1 = (int*)malloc(sizeof(int) * N);
+		for (int i = 0; i < N; ++i)
+		{
+			a1[i] = rand();
+		}
+		SelectSort(a1, N);
 
-
-	for (int i = 0; i < N - 1; i++)
-	{
-		assert(a1[i] <= a1[i + 1]);
+		for (int i = 0; i < N - 1; i++)
+		{
+			assert(a1[i] <= a1[i + 1]);
+		}
+		cout << "经过超级严谨的测试，这个排序没问题！！" << endl;
 	}
-	cout << "经过超级严谨的测试，这个排序没问题！！" << endl;
-}
 
 void BubbleSort(int* a, int n)
 {
-	
 	for (int j = n - 1; j >= 0; j--)
 	{
-		
-
 		int flag = 0;
 		for (int i = 0; i < j; i++)
 		{
@@ -46,11 +60,10 @@ void BubbleSort(int* a, int n)
 
 		if (flag == 0)
 		{
-			cout<<"Release 不要跳过我的BubbleSort哇" << endl;//必须要加入这句话，如果没有输出的话，我的bubble就不执行辣 (*T_T*) 
+			cout << "Release 不要跳过我的BubbleSort哇" << endl;//必须要加入这句话，如果没有输出的话，我的bubble就不执行辣 (*T_T*) 
 			break;
 		}
 	}
-
 }
 
 void BubbleSort_Bad(int* a, int n)
@@ -80,19 +93,17 @@ void BubbleSort_Bad(int* a, int n)
 //	}
 //}
 
-
-
 void Qsort(int* a, int begin, int end)
 {
 	//停止条件
-	if (begin >= end ) 
+	if (begin >= end)
 	{
 		return;
 	}
 
 	int left = begin, right = end - 1;
 	//随机选择key
-	int randi = left + (rand() % (right - left+1));
+	int randi = left + (rand() % (right - left + 1));
 	swap(a[left], a[randi]);
 
 	int key = a[left];
