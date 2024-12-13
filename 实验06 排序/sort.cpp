@@ -1,5 +1,16 @@
 ﻿#include"sort.h"
 
+//插入排序
+void InsertSort(SListNode* A)
+{
+	SListNode* Head = A;
+	while (A!=nullptr)
+	{
+
+	}
+}
+
+// 选择排序
 void SelectSort(int* a, int n)
 {
 	for (int i = 0; i < n - 1; i++)//循环扩大
@@ -7,12 +18,10 @@ void SelectSort(int* a, int n)
 		int small = i;
 		for (int j = i; j < n; j++)//选择最小的
 		{
-			
-			if (a[j]<a[small])
+			if (a[j] < a[small])
 			{
 				small = j;
 			}
-			
 		}
 		swap(a[i], a[small]);
 	}
@@ -25,24 +34,24 @@ void swap(int& i, int& j)
 	j = temp;
 }
 
-	void CheckSort()
+void CheckSort()
+{
+	srand(time(0));
+	const int N = 100;
+	cout << "完全无序测试数据量为：" << N << endl;
+	int* a1 = (int*)malloc(sizeof(int) * N);
+	for (int i = 0; i < N; ++i)
 	{
-		srand(time(0));
-		const int N = 100;
-		cout << "完全无序测试数据量为：" << N << endl;
-		int* a1 = (int*)malloc(sizeof(int) * N);
-		for (int i = 0; i < N; ++i)
-		{
-			a1[i] = rand();
-		}
-		SelectSort(a1, N);
-
-		for (int i = 0; i < N - 1; i++)
-		{
-			assert(a1[i] <= a1[i + 1]);
-		}
-		cout << "经过超级严谨的测试，这个排序没问题！！" << endl;
+		a1[i] = rand();
 	}
+	SelectSort(a1, N);
+
+	for (int i = 0; i < N - 1; i++)
+	{
+		assert(a1[i] <= a1[i + 1]);
+	}
+	cout << "经过超级严谨的测试，这个排序没问题！！" << endl;
+}
 
 void BubbleSort(int* a, int n)
 {
