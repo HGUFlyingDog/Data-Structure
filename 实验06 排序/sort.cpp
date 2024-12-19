@@ -1,14 +1,48 @@
 ﻿#include"sort.h"
 
 //插入排序
-void InsertSort(SListNode* A)
+void InsertSort_Link(SListNode*& A)
 {
-	SListNode* Head = A;
-	while (A!=nullptr)
-	{
+	if (A == nullptr || A->next == nullptr) return; // 链表为空或只有一个节点时直接返回
 
+	SListNode* head = A; // 记录链表头
+
+	while (A != nullptr && A->next != nullptr) // 确保 A 和 A->next 存在
+	{
+		if (A->next->data < A->data) // 找到了
+		{
+			SListNode* temp = A->next; // 保存下一个节点
+			A->next = A->next->next;  // 从原链表中移除 temp
+
+			// 插入 temp 到正确的位置
+			if (temp->data < head->data) // 插入到链表头部
+			{
+				temp->next = head;
+				head = temp;
+				continue;
+			}
+
+			SListNode* cur = head;
+			while (cur->next != nullptr) // 找到插入位置
+			{
+				if (temp->data < cur->next->data)
+				{
+					temp->next = cur->next;
+					cur->next = temp;
+					break; // 插入完成后退出循环
+				}
+				cur = cur->next;
+			}
+		}
+		else
+		{
+			A = A->next; // 只有无需插入时，才移动到下一个节点
+		}
 	}
+
+	A = head; // 更新链表头
 }
+
 
 // 选择排序
 void SelectSort(int* a, int n)
@@ -138,3 +172,4 @@ void Qsort(int* a, int begin, int end)
 	Qsort(a, begin, right);
 	Qsort(a, right + 1, end);
 }
+

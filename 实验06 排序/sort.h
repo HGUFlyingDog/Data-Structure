@@ -11,15 +11,23 @@ typedef struct SListNode
 
 
 using namespace std;
-
+//交换两个元素
 void swap(int& i, int& j);
 
+
+//排序部分
+//冒泡排序（优化后）
 void BubbleSort(int* a, int n);
+//冒泡排序（优化前）
 void BubbleSort_Bad(int* a, int n);
+// 快速排序——霍尔排序
 void Qsort(int* a, int begin, int end);
+//	选择排序
 void SelectSort(int* a, int n);
-void InsertSort(SListNode** A);
+// 插入排序（链表）
+void InsertSort_Link(SListNode*& A);
+//	
 
-
+// 检查排序的结果
 void CheckSort();
 //void ShellSort(int* a, int n);
