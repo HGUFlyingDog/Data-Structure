@@ -11,8 +11,7 @@ typedef struct SListNode
 
 
 using namespace std;
-//交换两个元素
-void swap(int& i, int& j);
+
 
 
 //排序部分
@@ -33,4 +32,5 @@ void ShellSort(int* a, int n);
 
 // 检查排序的结果
 void CheckSort();
-//void ShellSort(int* a, int n);
+//交换两个元素
+void swap(int& i, int& j);
