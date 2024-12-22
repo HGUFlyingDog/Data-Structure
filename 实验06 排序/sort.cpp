@@ -1,7 +1,5 @@
 ﻿#include"sort.h"
 
-
-
 // 选择排序
 void SelectSort(int* a, int n)
 {
