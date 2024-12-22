@@ -26,7 +26,10 @@ void Qsort(int* a, int begin, int end);
 void SelectSort(int* a, int n);
 // 插入排序（链表）
 void InsertSort_Link(SListNode*& A);
-//	
+// 插入排序 （非链表）
+void InsertSort(int* a, int n);
+// 希尔排序
+void ShellSort(int* a, int n);
 
 // 检查排序的结果
 void CheckSort();

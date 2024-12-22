@@ -10,16 +10,16 @@ int main()
 	int test[5] = {3,2,4,1,5};
 	
 
-	SelectSort(test, 5); 
-	for (auto x : test)
-	{
-		cout << x << " ";
-	}
+	//SelectSort(test, 5); 
+	//for (auto x : test)
+	//{
+	//	cout << x << " ";
+	//}
 	//CheckSort();
 
 	//Testorder();
 	
-	//TestOP();
+	TestOP();
 
 	return 0;
 }

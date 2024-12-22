@@ -1,47 +1,5 @@
 ﻿#include"sort.h"
 
-//插入排序
-void InsertSort_Link(SListNode*& A)
-{
-	if (A == nullptr || A->next == nullptr) return; // 链表为空或只有一个节点时直接返回
-
-	SListNode* head = A; // 记录链表头
-
-	while (A != nullptr && A->next != nullptr) // 确保 A 和 A->next 存在
-	{
-		if (A->next->data < A->data) // 找到了
-		{
-			SListNode* temp = A->next; // 保存下一个节点
-			A->next = A->next->next;  // 从原链表中移除 temp
-
-			// 插入 temp 到正确的位置
-			if (temp->data < head->data) // 插入到链表头部
-			{
-				temp->next = head;
-				head = temp;
-				continue;
-			}
-
-			SListNode* cur = head;
-			while (cur->next != nullptr) // 找到插入位置
-			{
-				if (temp->data < cur->next->data)
-				{
-					temp->next = cur->next;
-					cur->next = temp;
-					break; // 插入完成后退出循环
-				}
-				cur = cur->next;
-			}
-		}
-		else
-		{
-			A = A->next; // 只有无需插入时，才移动到下一个节点
-		}
-	}
-
-	A = head; // 更新链表头
-}
 
 
 // 选择排序
@@ -123,18 +81,34 @@ void BubbleSort_Bad(int* a, int n)
 	}
 }
 
-//void ShellSort(int* a, int n)
-//{
-//	int gap = n / 2;
-//
-//	for (int i = 0; i < n - gap; i += gap)
-//	{
-//		if (a[i] > a[i + gap])
-//		{
-//			swap(a[i], a[i + gap]);
-//		}
-//	}
-//}
+void ShellSort(int* a, int n)
+{
+	int gap = n;
+	while (gap > 1)
+	{
+		gap /= 2;// gap 
+		
+
+		for (int i = 0; i < n - gap; i++)
+		{
+			int end = i;
+			int tmp = a[i + gap];
+			while (end >= 0)
+			{
+				if (tmp < a[end])
+				{
+					a[end + gap] = a[end];
+					end -= gap;
+				}
+				else
+				{
+					break;
+				}
+			}
+			a[end + gap] = tmp;
+		}
+	}
+}
 
 void Qsort(int* a, int begin, int end)
 {
@@ -173,3 +147,70 @@ void Qsort(int* a, int begin, int end)
 	Qsort(a, right + 1, end);
 }
 
+//插入排序
+void InsertSort_Link(SListNode*& A)
+{
+	if (A == nullptr || A->next == nullptr) return; // 链表为空或只有一个节点时直接返回
+
+	SListNode* head = A; // 记录链表头
+
+	while (A != nullptr && A->next != nullptr) // 确保 A 和 A->next 存在
+	{
+		if (A->next->data < A->data) // 找到了
+		{
+			SListNode* temp = A->next; 
+			A->next = A->next->next;  
+
+			// 插入 temp 到正确的位置
+			if (temp->data < head->data) 
+			{
+				temp->next = head;
+				head = temp;
+				continue;
+			}
+
+			SListNode* cur = head;
+			while (cur->next != nullptr) // 找到插入位置
+			{
+				if (temp->data < cur->next->data)
+				{
+					temp->next = cur->next;
+					cur->next = temp;
+					break; 
+				}
+				cur = cur->next;
+			}
+		}
+		else
+		{
+			A = A->next; 
+		}
+	}
+
+	A = head; // 更新链表头
+}
+
+
+void InsertSort(int* a, int n)
+{
+	for (int i = 1; i < n; i++)
+	{
+		int end = i - 1;
+		int tmp = a[i];
+		// 将tmp插入到[0,end]区间中，保持有序
+		while (end >= 0)
+		{
+			if (tmp < a[end])
+			{
+				a[end + 1] = a[end];
+				--end;
+			}
+			else
+			{
+				break;
+			}
+		}//这个循环结束以后end的位置就是要插入的位置的前一个
+
+		a[end + 1] = tmp;
+	}
+}
